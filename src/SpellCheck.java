@@ -21,13 +21,8 @@ public class SpellCheck {
      */
     public String[] checkWords(String[] text, String[] dictionary) {
         Set<String> dict = new HashSet<>(Arrays.asList(dictionary));
-        Set<String> misspelled = new HashSet<>();
-        for (String word : text) {
-            if (!dict.contains(word) && !misspelled.contains(word)) {
-                misspelled.add(word);
-            }
-        }
-        String[] arr = new String[misspelled.size()];
-        return misspelled.toArray(arr);
+        Set<String> misspelled = new LinkedHashSet<>();
+        for (String word : text) if (!dict.contains(word)) misspelled.add(word);
+        return misspelled.toArray(new String[0]);
     }
 }
