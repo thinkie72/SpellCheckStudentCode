@@ -20,7 +20,7 @@ public class SpellCheck {
      * @return String[] of all misspelled words in the order they appear in text. No duplicates.
      */
     public String[] checkWords(String[] text, String[] dictionary) {
-        // Hashed Way: fastest I've found
+        // Hashed Way: fastest I've found (649 ms)
         // Turns the dictionary into a Hashset
         Set<String> dictionary_v2 = new HashSet<>(Arrays.asList(dictionary));
         // Creates Hash Set to hold misspelled words, but as a linked one to maintain the order of the added words
@@ -30,7 +30,22 @@ public class SpellCheck {
         // Returns the array version of misspelled
         return misspelled.toArray(new String[0]);
 
-        // Linear and Iterative Way coming next
+//        // Linear, Iterative Way (so slow I got bored from watching it load)
+//        ArrayList<String> misspelled = new ArrayList<>();
+//        for (String possible : text) {
+//            for (String confirmed : dictionary) {
+//                if (possible.equals(confirmed) && !misspelled.contains(possible)) {
+//                    misspelled.add(possible);
+//                }
+//            }
+//        }
+//        return mispelled.toArray(new String[0]);
 
+//        // Linear, Iterative Way v2 (5 min 12 sec w/ 3 timeouts)
+//        ArrayList<String> dict = new ArrayList<>(Arrays.asList(dictionary));
+//        ArrayList<String> misspelled = new ArrayList<>();
+//        for (String possible : text)
+//            if (dict.contains(possible) && !misspelled.contains(possible)) misspelled.add(possible);
+//        return mispelled.toArray(new String[0]);
     }
 }
