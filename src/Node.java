@@ -7,7 +7,7 @@ public class Node {
     // Constructor
     public Node() {
         isWord = false;
-        next = new Node[27];
+        next = new Node[255];
     }
 
     // Methods

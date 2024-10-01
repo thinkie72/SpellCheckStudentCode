@@ -9,31 +9,23 @@ public class Trie {
     }
 
     // Methods
-    public int charToIndex(char c) {
-        if (c == 39) return 26;
-        return c - 'a';
-    }
     public void insert(String s) {;
         Node n = root;
-        int i;
         for (char c : s.toCharArray()) {
-            i = charToIndex(c);
-            if (n.getNext()[i] == null) {
-                n.getNext()[i] = new Node();
+            if (n.getNext()[c] == null) {
+                n.getNext()[c] = new Node();
             }
-            n = n.getNext()[i];
+            n = n.getNext()[c];
         }
         n.setWord();
     }
     public boolean lookup(String s) {
         Node n = root;
-        int i;
         for (char c : s.toCharArray()) {
-            i = charToIndex(c);
-            if (i < 0 || i >= 27 || n.getNext()[i] == null) {
+            if (n.getNext()[c] == null) {
                 return false;
             }
-            n = n.getNext()[i];
+            n = n.getNext()[c];
         }
         return n.isWord();
     }
