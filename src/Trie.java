@@ -1,26 +1,26 @@
 // By Tyler Hinkie in September and October 2024
 public class Trie {
     // Instance variables
-    private Node root;
+    private TrieNode root;
 
     // Constructor
     public Trie() {
-        root = new Node();
+        root = new TrieNode();
     }
 
     // Methods
     public void insert(String s) {;
-        Node n = root;
+        TrieNode n = root;
         for (char c : s.toCharArray()) {
             if (n.getNext()[c] == null) {
-                n.getNext()[c] = new Node();
+                n.getNext()[c] = new TrieNode();
             }
             n = n.getNext()[c];
         }
         n.setWord();
     }
     public boolean lookup(String s) {
-        Node n = root;
+        TrieNode n = root;
         for (char c : s.toCharArray()) {
             if (n.getNext()[c] == null) {
                 return false;
@@ -29,9 +29,4 @@ public class Trie {
         }
         return n.isWord();
     }
-    public void printTrie() {
-
-    }
-
-
 }

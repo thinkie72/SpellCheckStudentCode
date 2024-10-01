@@ -20,26 +20,22 @@ public class SpellCheck {
      * @return String[] of all misspelled words in the order they appear in text. No duplicates.
      */
     public String[] checkWords(String[] text, String[] dictionary) {
-//        Create a Trie for the dictionary
+        // Create a Trie for the dictionary
         Trie dict = new Trie();
-//        For each word in the dictionary,
+        // Insert each word in the dictionary into the trie version
         for (String word : dictionary) dict.insert(word);
-//        insert it into the Trie
-//
-//        Create a Trie for the misspelled words
+        // Create a Trie for the misspelled words
         Trie miss = new Trie();
+        // Separate ArrayList for misspelled words b/c it is hard to convert Trie to an array of words
         ArrayList<String> misspelled = new ArrayList<>();
-//
-//        for each word in text:
         for (String word : text) {
+            // Add word to both the Trie and ArrayList if it isn't in dictionary and isn't already in the miss Trie
             if (!dict.lookup(word) && !miss.lookup(word)) {
                 miss.insert(word);
                 misspelled.add(word);
             }
         }
-//        if not in dictionary Trie and
-//        not in misspelled Trie
-//        add to misspelled Trie
+        // Return converted ArrayList
         return misspelled.toArray(new String[0]);
     }
 }

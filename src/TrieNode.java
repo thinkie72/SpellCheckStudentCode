@@ -1,17 +1,17 @@
 // By Tyler Hinkie in September and October 2024
-public class Node {
+public class TrieNode {
     // Instance variables
     private boolean isWord;
-    private Node[] next;
+    private TrieNode[] next;
 
     // Constructor
-    public Node() {
+    public TrieNode() {
         isWord = false;
-        next = new Node[255];
+        next = new TrieNode[255];
     }
 
     // Methods
     public boolean isWord() {return isWord;}
     public void setWord() {isWord = true;}
-    public Node[] getNext () {return next;}
+    public TrieNode[] getNext () {return next;}
 }
