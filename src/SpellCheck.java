@@ -37,5 +37,22 @@ public class SpellCheck {
         }
         // Return converted ArrayList
         return misspelled.toArray(new String[0]);
+//        // Create a TST for the dictionary
+//        TST dict = new TST();
+//        // Insert each word in the dictionary into the trie version
+//        for (String word : dictionary) dict.insert(word);
+//        // Create a Trie for the misspelled words
+//        TST miss = new TST();
+//        // Separate ArrayList for misspelled words b/c it is hard to convert Trie to an array of words
+//        ArrayList<String> misspelled = new ArrayList<>();
+//        for (String word : text) {
+//            // Add word to both the Trie and ArrayList if it isn't in dictionary and isn't already in the miss Trie
+//            if (!dict.lookup(word) && !miss.lookup(word)) {
+//                miss.insert(word);
+//                misspelled.add(word);
+//            }
+//        }
+//        // Return converted ArrayList
+//        return misspelled.toArray(new String[0]);
     }
 }

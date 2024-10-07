@@ -1,5 +1,6 @@
 public class TSTNode {
     // Instance Variables
+    private char letter;
     private boolean isWord;
     private TSTNode[] next;
 
@@ -10,4 +11,23 @@ public class TSTNode {
     }
 
     // Methods
+    public char getLetter() {
+        return letter;
+    }
+
+    public void setLetter(char letter) {
+        this.letter = letter;
+    }
+
+    public TSTNode[] getNext() {
+        return next;
+    }
+
+    public boolean isWord() {
+        return isWord;
+    }
+
+    public void setWord() {
+        isWord = true;
+    }
 }

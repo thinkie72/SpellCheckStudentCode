@@ -9,24 +9,24 @@ public class Trie {
     }
 
     // Methods
-    public void insert(String s) {;
-        TrieNode n = root;
-        for (char c : s.toCharArray()) {
-            if (n.getNext()[c] == null) {
-                n.getNext()[c] = new TrieNode();
+    public void insert(String word) {;
+        TrieNode node = root;
+        for (char letter : word.toCharArray()) {
+            if (node.getNext()[letter] == null) {
+                node.getNext()[letter] = new TrieNode();
             }
-            n = n.getNext()[c];
+            node = node.getNext()[letter];
         }
-        n.setWord();
+        node.setWord();
     }
-    public boolean lookup(String s) {
-        TrieNode n = root;
-        for (char c : s.toCharArray()) {
-            if (n.getNext()[c] == null) {
+    public boolean lookup(String word) {
+        TrieNode node = root;
+        for (char letter : word.toCharArray()) {
+            if (node.getNext()[letter] == null) {
                 return false;
             }
-            n = n.getNext()[c];
+            node = node.getNext()[letter];
         }
-        return n.isWord();
+        return node.isWord();
     }
 }
