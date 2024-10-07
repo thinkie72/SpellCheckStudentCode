@@ -11,10 +11,9 @@ public class Trie {
     // Methods
     public void insert(String word) {
         TrieNode node = root;
-        for (char letter : word.toCharArray()) {
-            if (node.getNext()[letter] == null) {
-                node.getNext()[letter] = new TrieNode();
-            }
+        char[] letters = word.toCharArray();
+        for (char letter : letters) {
+            if (node.getNext()[letter] == null) node.getNext()[letter] = new TrieNode();
             node = node.getNext()[letter];
         }
         node.setWord();
@@ -22,10 +21,9 @@ public class Trie {
 
     public boolean lookup(String word) {
         TrieNode node = root;
-        for (char letter : word.toCharArray()) {
-            if (node.getNext()[letter] == null) {
-                return false;
-            }
+        char[] letters = word.toCharArray();
+        for (char letter : letters) {
+            if (node.getNext()[letter] == null) return false;
             node = node.getNext()[letter];
         }
         return node.isWord();

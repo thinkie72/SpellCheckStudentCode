@@ -3,25 +3,41 @@ public class TSTNode {
     // Instance Variables
     private char letter;
     private boolean isWord;
-    private TSTNode[] next;
+    private TSTNode left, middle, right;
 
     // Constructor
-    public TSTNode() {
+    public TSTNode(char letter) {
         isWord = false;
-        next = new TSTNode[3];
+        this.letter = letter;
     }
 
-    // Methods
+    // Methods (all accessors and mutators)
     public char getLetter() {
         return letter;
     }
 
-    public void setLetter(char letter) {
-        this.letter = letter;
+    public TSTNode getLeft() {
+        return left;
     }
 
-    public TSTNode[] getNext() {
-        return next;
+    public void setLeft(TSTNode left) {
+        this.left = left;
+    }
+
+    public TSTNode getMiddle() {
+        return middle;
+    }
+
+    public void setMiddle(TSTNode middle) {
+        this.middle = middle;
+    }
+
+    public TSTNode getRight() {
+        return right;
+    }
+
+    public void setRight(TSTNode right) {
+        this.right = right;
     }
 
     public boolean isWord() {
