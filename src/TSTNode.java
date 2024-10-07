@@ -1,3 +1,4 @@
+// By Tyler Hinkie in October 2024
 public class TSTNode {
     // Instance Variables
     private char letter;

@@ -1,3 +1,4 @@
+// By Tyler Hinkie in October 2024
 public class TST {
     // Instance Variables
     private TSTNode root;
@@ -12,25 +13,34 @@ public class TST {
         root = insert(root, word.toCharArray(), 0);
     }
 
-    private TSTNode insert(TSTNode n, char[] letters, int index) {
-        if (index >= letters.length) return n;
-        char c = letters[index];
-        if (n == null) {
-            n = new TSTNode();
-            n.setLetter(c);
+    private TSTNode insert(TSTNode node, char[] letters, int index) {
+        if (index >= letters.length) return node;
+        char letter = letters[index];
+        if (node == null) {
+            node = new TSTNode();
+            node.setLetter(letter);
         }
-        if (index + 1 == letters.length) n.setWord();
-        if (c < n.getLetter()) n.getNext()[0] = insert(n.getNext()[0], letters, index);
-        else if (c > n.getLetter()) n.getNext()[2] = insert(n.getNext()[2], letters, index);
-        else n.getNext()[1] = insert(n.getNext()[1], letters, index + 1);
-        return n;
+        if (letter < node.getLetter()) node.getNext()[0] = insert(node.getNext()[0], letters, index);
+        else if (letter > node.getLetter()) node.getNext()[2] = insert(node.getNext()[2], letters, index);
+        else if (index + 1 == letters.length) node.setWord();
+        else node.getNext()[1] = insert(node.getNext()[1], letters, index + 1);
+        return node;
     }
 
     public boolean lookup(String word) {
         return lookup(root, word.toCharArray(), 0);
     }
 
-    private boolean lookup(TSTNode n, char[] letters, int index) {
-
+    private boolean lookup(TSTNode node, char[] letters, int index) {
+        if (index >= letters.length) return false;
+        char letter = letters[index];
+        if (node == null) {
+            node = new TSTNode();
+            node.setLetter(letter);
+        }
+        if (letter < node.getLetter()) return lookup(node.getNext()[0], letters, index);
+        else if (letter > node.getLetter()) return lookup(node.getNext()[2], letters, index);
+        else if (index + 1 == letters.length) return node.isWord();
+        return lookup(node.getNext()[1], letters, index + 1);
     }
 }

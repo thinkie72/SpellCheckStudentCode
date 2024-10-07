@@ -9,7 +9,7 @@ public class Trie {
     }
 
     // Methods
-    public void insert(String word) {;
+    public void insert(String word) {
         TrieNode node = root;
         for (char letter : word.toCharArray()) {
             if (node.getNext()[letter] == null) {
@@ -19,6 +19,7 @@ public class Trie {
         }
         node.setWord();
     }
+
     public boolean lookup(String word) {
         TrieNode node = root;
         for (char letter : word.toCharArray()) {

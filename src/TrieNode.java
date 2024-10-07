@@ -11,7 +11,15 @@ public class TrieNode {
     }
 
     // Methods
-    public boolean isWord() {return isWord;}
-    public void setWord() {isWord = true;}
-    public TrieNode[] getNext () {return next;}
+    public boolean isWord() {
+        return isWord;
+    }
+
+    public void setWord() {
+        isWord = true;
+    }
+
+    public TrieNode[] getNext() {
+        return next;
+    }
 }
